@@ -1,4 +1,4 @@
-import { Router, Request, Response } from "express"
+import { Router } from "express"
 import { createProduct, deleteProduct, getProductById, getProducts, updateAvailability, updateProduct } from "./handlers/products"
 import { body, param } from "express-validator"
 import { handleInputErrors } from "./middleware"
@@ -24,6 +24,7 @@ router.post('/',
     createProduct)
 
 router.put('/:id',
+    param('id').isInt().withMessage('Id no valido'),
     body('name')
         .notEmpty().withMessage('El nombre del producto no puede ir vacío'),
     body('price')
