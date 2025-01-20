@@ -4,10 +4,11 @@
   "description": "REST API's con Express y Typescript",
   "license": "ISC",
   "author": "Nacho Tosini",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon --exec ts-node src/index.ts",
     "build": "tsc",
+    "start": "node dist/index.js",
     "test": "jest --detectOpenHandles",
     "test:coverage": "npm run pretest && jest --detectOpenHandles --coverage",
     "pretest": "ts-node ./src/data --clear"
